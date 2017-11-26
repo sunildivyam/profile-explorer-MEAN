@@ -1,0 +1,1 @@
+node ./server-profile-explorer/server
