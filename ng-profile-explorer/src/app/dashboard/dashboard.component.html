@@ -1,0 +1,29 @@
+<header>
+  <h1>My Profiles</h1>
+  <summary>
+    Create new profiles, Update and manage existing profiles.
+  </summary>
+</header>
+<section>
+  <ul>
+    <li *ngFor="let profile of this.profiles; let serialNumber = index">
+      <span>{{serialNumber + 1}}</span>
+      <span>{{profile.profileName}}</span>
+      <span></span>
+      <summary>
+        <div>
+          <span>{{profile.firstName}}</span> <span>{{profile.lastName}}</span>
+        </div>
+        <div>
+          <span>{{profile.email}}</span>  
+        </div>
+        <div>
+          <a>
+            <span>{{profile._id}}</span>
+            <span></span> 
+          </a>
+        </div>
+      </summary>
+    </li>
+  </ul>
+</section>
