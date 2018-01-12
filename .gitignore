@@ -57,3 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+#App Specific Ignores
+mongodb-profile-explorer/data/journal
+mongodb-profile-explorer/data/diagnostic.data
+
