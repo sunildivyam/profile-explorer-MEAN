@@ -5,7 +5,7 @@ import {ProfileComponent} from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile/:userId', component: ProfileComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 

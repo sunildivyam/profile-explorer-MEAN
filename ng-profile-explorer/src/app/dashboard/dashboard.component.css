@@ -1,0 +1,21 @@
+.card-container {
+    display: inline-block;
+    margin: 15px;
+    vertical-align: top;
+}
+.card {    
+    width: 20rem;
+}
+
+.card .card-img-top {
+    text-align: center;
+    width: 15rem;
+    height: 17rem;
+    border: 1px solid lightgrey;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.card .card-img-top img {
+    width: 100%;
+}

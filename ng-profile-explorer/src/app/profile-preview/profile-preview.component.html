@@ -1,0 +1,223 @@
+<div class="container profile-preview">
+  <button class="collapse-preview btn btn-primary" (click)="onFullScreenClick($event)">
+    <span class="fa fa-arrows-alt"></span> {{isFullScreen?'Exit ': ''}}Full Screen</button>
+  <table>
+    <tbody>
+      <tr>
+        <td class="w-73">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <h1 class="font-11">{{preview.basicInfo.firstName | uppercase}} {{preview.basicInfo.lastName | uppercase}}</h1>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h5 class="font-7">{{preview.basicInfo.currentDesignation}}</h5>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-4 padding-bottom-20">
+                  <span>{{preview.basicInfo.shortAddress}} | {{preview.basicInfo.phone}} | <a href="mailto://{{preview.basicInfo.email}}">{{preview.basicInfo.email}}</a></span>
+                </td>
+              </tr>
+              <tr *ngFor="let socialMediaLink of preview.socialMedia">
+                <td class="font-4">
+                  <a href="{{socialMediaLink.url}}" target="_blank">
+                    <span class="icon fa fa-{{socialMediaLink.name}}"></span>
+                    {{socialMediaLink.url}}
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td class="w-2">
+          <!-- Mid Column -->
+        </td>
+        <td class="w-25 text-center">
+          <img class="w-80 padding-top-20" src="{{preview.basicInfo.profileImage}}" alt=" ">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+
+                  <table class="w-100">
+                      <tbody>
+                      <!-- Employers -->
+                      <tr>
+                        <td>
+                          <div class="padding-top-20 padding-bottom-10 border-bottom">
+                            <h2 class="font-6">Work History | <span class="font-4">{{preview.basicInfo.experience}}</span></h2>                     
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <table>
+                            <tbody>
+                              <tr *ngFor="let employer of preview.employers">
+                                <td class="w-20 text-right font-4 padding-right-10 padding-top-20">
+                                  <div>{{employer.from | date:'MMM, y'}}</div>
+                                  <div>{{(employer.to | date:'MMM, y') ||  'Present'}}</div>
+                                  <div><i><strong>{{employer.experience}}</strong></i></div>
+                                </td>
+                                <td class="w-80 padding-top-20">
+                                  <h4 class="font-5">{{employer.designation}}</h4>
+                                  <h3 class="font-4">{{employer.employerName}}</h3>                  
+                                  <summary class="font-4 padding-top-10">{{employer.summary}}</summary>
+                                  <h3 *ngIf="employer.roles.length" class="font-4 padding-top-10">Roles:</h3>                  
+                                  <ul *ngIf="employer.roles.length" class="padding-top-10">
+                                    <li class="font-4" *ngFor="let role of employer.roles">{{role}}</li>
+                                  </ul>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table> 
+                      <!-- Projects -->
+                  <table class="w-100">
+                      <tbody>
+                      <tr>
+                        <td>
+                          <div class="padding-top-20 padding-bottom-10 border-bottom">
+                            <h2 class="font-6">Projects | <span class="font-4">{{preview.projects.length}} Projects</span></h2>                     
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <table>
+                            <tbody>
+                              <tr *ngFor="let project of preview.projects">
+                                <td class="w-20 text-right font-4 padding-right-10 padding-top-20">
+                                  <div>{{project.from | date:'MMM, y'}}</div>
+                                  <div>{{(project.to | date:'MMM, y') ||  'Present'}}</div>
+                                  <div><i><strong>{{project.duration}}</strong></i></div>
+                                </td>
+                                <td class="w-80 padding-top-20">
+                                  <h4 class="font-5">{{project.name}}</h4>
+                                  <h3 class="font-4">{{project.clientName}}</h3>                  
+                                  <summary class="font-4 padding-top-10">{{project.summary}}</summary>
+                                  <h3 *ngIf="project.technologies.length" class="font-4 padding-top-10">Technologies used:</h3>                  
+                                  <div *ngIf="project.technologies.length" class="padding-top-10">                            
+                                    <span class="font-4 label">{{project.technologies.join(', ')}}</span>
+                                  </div>
+                                  <h3 *ngIf="project.roles.length" class="font-4 padding-top-10">My Roles in the Project:</h3>                  
+                                  <ul *ngIf="project.roles.length" class="padding-top-10">
+                                    <li class="font-4" *ngFor="let role of project.roles">{{role}}</li>
+                                  </ul>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>               
+                      <!-- Education -->
+                  <table class="w-100">
+                      <tbody>
+                      <tr>
+                        <td>
+                          <div class="padding-top-20 padding-bottom-10 border-bottom">
+                            <h2 class="font-6">Education And Academics</h2>                     
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <table>
+                            <tbody>
+                              <tr *ngFor="let education of preview.education">
+                                <td class="w-20 text-right font-4 padding-right-10 padding-top-20">
+                                  <div>{{education.from | date:'MMM, y'}}</div>
+                                  <div>{{(education.to | date:'MMM, y') ||  'Present'}}</div>
+                                  <div><i><strong>{{education.duration}}</strong></i></div>
+                                </td>
+                                <td class="w-80 padding-top-20">
+                                  <h4 class="font-5">{{education.name}}</h4>
+                                  <h3 class="font-4">{{education.branch}}</h3>                  
+                                  <h3 class="font-3">{{education.institution}}</h3>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table> 
+                  <!-- Additionals -->
+                  <table class="w-100" *ngFor="let additional of preview.additionals; let idx = index" [hidden]="!additional.title">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="padding-top-20 padding-bottom-10 border-bottom">
+                            <h2 class="font-6">{{additional.title}}</h2>                     
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="w-80 padding-top-20">                                       
+                          <summary [hidden]="!additional.summary" class="font-4 padding-top-10">{{additional.summary}}</summary>                                            
+                          <ul [hidden]="!additional.bullets.length" class="padding-top-10">
+                            <li class="font-4" *ngFor="let bullet of additional.bullets">{{bullet}}</li>
+                          </ul>       
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>
+          <!--Mid Section -->
+        </td>
+        <td>
+          <!--SKILLS Section -->
+          <div class="padding-top-20 padding-bottom-10 border-bottom">
+            <h2 class="font-6">Skills</h2>
+          </div>
+          <table>
+            <tbody>                            
+              <tr *ngFor="let skill of preview.skills">
+                <td class="padding-top-30">
+                  <h4 class="font-4">{{skill.name}}</h4>
+                  <div class="font-3">{{skill.experience}}</div>
+                  <rating-form [rating]="skill.rating" [isReadOnly]="true"></rating-form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>          
+      </tr>      
+    </tbody>
+  </table>
+  <p class="font- 4 padding-top-30 padding-bottom-30">
+    I here by declare that, the information given above is correct to best of my knowledge.
+  </p>
+  <table class="w-100">
+    <tbody>
+      <tr>
+        <td class="w-70 text-left">
+          <div class="font-4">Date: ___________ </div>
+          <div class="font-4">Place: __________ </div>
+        </td>
+        <td class="w-30 text-right">
+            <h4 class="font-5 padding-bottom-20">(Signature)</h4>
+            <h4 class="font-5">{{preview.basicInfo.firstName | uppercase}} {{preview.basicInfo.lastName | uppercase}}</h4>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

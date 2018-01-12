@@ -1,29 +1,22 @@
-<header>
-  <h1>My Profiles</h1>
-  <summary>
-    Create new profiles, Update and manage existing profiles.
-  </summary>
-</header>
-<section>
-  <ul>
-    <li *ngFor="let profile of this.profiles; let serialNumber = index">
-      <span>{{serialNumber + 1}}</span>
-      <span>{{profile.profileName}}</span>
-      <span></span>
-      <summary>
-        <div>
-          <span>{{profile.firstName}}</span> <span>{{profile.lastName}}</span>
+<section class="container-fluid">  
+  <div class="row">
+    <div class="col-sm-12">        
+      <div class="card-container"  *ngFor="let profile of this.profiles; let serialNumber = index">
+        <div class="card">
+            <div class="card-img-top">
+                <img class="" onerror="this.style='display:none;'" src="{{profile.basicInfo.profileImage}}" alt="{{profile.basicInfo.profileName}}">
+            </div>            
+          <div class="card-body">
+            <h4 class="card-title">{{profile.basicInfo.profileName}}</h4>
+            <h5 class="card-title"><span>{{profile.basicInfo.firstName}}</span> <span>{{profile.basicInfo.lastName}}</span></h5>    
+            <!--
+            <p class="card-text"><span>{{profile.basicInfo.email}}</span></p>
+            -->
+            <a routerLink="/profile/{{profile._id}}" class="btn btn-primary"><span>Manage & Print</span>
+              <span></span></a>
+          </div>
         </div>
-        <div>
-          <span>{{profile.email}}</span>  
-        </div>
-        <div>
-          <a>
-            <span>{{profile._id}}</span>
-            <span></span> 
-          </a>
-        </div>
-      </summary>
-    </li>
-  </ul>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,3 +1,68 @@
-<p>
-  profile works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3" [hidden]="isFullScreen">
+      <div class="profile-image-section" [hidden]="!profile._id || profile._id == '0'">
+        <form #resourceUploadForm="ngForm" class="" role="form">
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="control-label" for="uploaded-file">Profile Photo</label>
+            <input id="uploaded-file" name="uploadFile" type="file" class="form-control" (change)="onFileInputChange($event)" accept="image/*">        
+          </div>
+    
+          <div class="form-group">
+            <label class="control-label text-success" [hidden]="!uploadStatus">Uploaded Successfully.</label>
+            <label class="control-label text-danger" [hidden]="uploadStatus === undefined || uploadStatus === true">Upload Failed, {{failureMessage}} Please try again.</label>
+          </div>
+          <!-- Button (Double) -->
+          <div class="form-group">
+            <button id="resource-upload-btn" name="resourceUploadBtn" class="btn btn-primary" (click)="onUploadClick($event)">Change Photo</button>
+          </div>
+        </form>
+        <div [hidden]="!isUploading">
+          <span class="fa fa-spinner"></span>
+        </div>
+      </div>
+      <div id="profile-sections" class="list-group">
+        <a class="list-group-item list-group-item-action" href="#" (click)="onSectionChange($event, 'basic-info-section')" [ngClass]="{'active':currentSection=='basic-info-section'}">Basic info</a>
+        <a class="list-group-item list-group-item-action" href="#" (click)="onSectionChange($event, 'social-media-section')" [ngClass]="{'active':currentSection=='social-media-section'}">Social Media</a>
+        <a class="list-group-item list-group-item-action" href="#" (click)="onSectionChange($event, 'employers-section')" [ngClass]="{'active':currentSection=='employers-section'}">Employers</a>
+        <a class="list-group-item list-group-item-action" href="#" (click)="onSectionChange($event, 'projects-section')" [ngClass]="{'active':currentSection=='projects-section'}">Projects</a>
+        <a class="list-group-item list-group-item-action" href="#" (click)="onSectionChange($event, 'education-section')" [ngClass]="{'active':currentSection=='education-section'}">Education</a>
+        <a class="list-group-item list-group-item-action" href="#" (click)="onSectionChange($event, 'skills-section')" [ngClass]="{'active':currentSection=='skills-section'}">Skills</a>
+        <a class="list-group-item list-group-item-action" href="#" (click)="onSectionChange($event, 'additionals-section')" [ngClass]="{'active':currentSection=='additionals-section'}">Additionals</a>
+        <a class="list-group-item list-group-item-action" href="#" (click)="onSectionChange($event, 'preview-section')" [ngClass]="{'active':currentSection=='preview-section'}"><strong>Preview Profile</strong></a>
+        <a class="list-group-item list-group-item-action" ><hr/></a>
+        <a class="list-group-item list-group-item-action" href="#" (click)="onDuplicate($event)">{{duplicateBtnText}}</a>
+      </div> 
+    </div>
+    <div class="{{isFullScreen?'col-sm-12':'col-sm-9'}}">
+      <div class="profile-container">
+        <div class="profile-section" id="basic-info-section">
+          <basic-info-form [info]="profile.basicInfo" (onSave)="onSaveBasicInfo($event)"></basic-info-form>
+        </div>
+        <div class="profile-section" id="social-media-section">
+          <social-media-form [links]="profile.socialMedia" (onSave)="onSaveSocialMedia($event)"></social-media-form>
+        </div>
+        <div class="profile-section" id="employers-section">
+          <employers-form [employers]="profile.employers" (onSave)="onSaveEmployers($event)"></employers-form>
+        </div>
+        <div class="profile-section" id="projects-section">
+          <projects-form [projects]="profile.projects" (onSave)="onSaveProjects($event)"></projects-form>
+        </div>
+        <div class="profile-section" id="education-section">
+          <education-form [educationItems]="profile.education" (onSave)="onSaveEducation($event)"></education-form>
+        </div>
+        <div class="profile-section" id="skills-section">
+          <skills-form [skills]="profile.skills" (onSave)="onSaveSkills($event)"></skills-form>
+        </div>
+        <div class="profile-section" id="additionals-section">
+          <additionals-form [additionals]="profile.additionals" (onSave)="onSaveAdditionals($event)"></additionals-form>
+        </div>
+        <div class="profile-section" id="preview-section">
+            <profile-preview [profile]="profile"></profile-preview>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+

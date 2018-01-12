@@ -1,0 +1,10 @@
+.profile-container {
+    position: relative;
+}
+
+.profile-section {
+    display: none;
+}
+
+table { page-break-inside:avoid }
+tr    { page-break-inside:avoid; page-break-after:avoid }

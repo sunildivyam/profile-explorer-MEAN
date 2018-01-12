@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
 const app = express();
+const fileUpload = require('express-fileupload');
 
 // API file for interacting with MongoDB
 const api = require('./src/routes/api');
@@ -13,6 +14,10 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+// Middleware for Uploading Files.
+app.use(fileUpload());
+
 
 // Parsers
 app.use(bodyParser.json());

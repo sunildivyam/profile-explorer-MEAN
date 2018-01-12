@@ -1,37 +1,104 @@
 {   
-    "profileName": "UI Developer", 
-    "firstName": "Sunil",
-    "lastName": "Kumar",
-    "email": "sunil.divyam@gmail.com",
-    "address": "A-7, Saraswati Vihar,  Post Aduki, Mathura-281006",
-    "shortAddress": "Noida, India",
-    "linkedin": "https://www.linkedin.com/in/sunil-kumar-632b7797/",
-    "stackoverflow": "https://stackoverflow.com/users/story/8393461",
-    "github": "https://github.com/sunildivyam",
-    "facebook": "https://www.facebook.com/sun.mgt",
-    "webpage": "http://www.learnwiseway.com/myworkspace/sunil.divya",
+    "basicInfo": {
+        "profileName": "UI Developer", 
+        "firstName": "Sunil",
+        "lastName": "Kumar",
+        "email": "sunil.divyam@gmail.com",
+        "address": "A-7, Saraswati Vihar,  Post Aduki, Mathura-281006",
+        "shortAddress": "Noida, India",
+        "phone": "9910129602",
+        "birthDate": "03/05/1979", 
+        "profileImage": "",
+
+        "currentCtc": 10.9
+        
+    },
+    "socialMedia" : [
+        {
+            "name": "linkedin",
+            "url": "https://www.linkedin.com/in/sunil-kumar-632b7797/"
+        },
+        {
+            "name": "stackoverflow",
+            "url": "https://stackoverflow.com/users/story/8393461"
+        },
+        {
+            "name": "github",
+            "url": "https://github.com/sunildivyam"
+        },
+        {
+            "name": "facebook",
+            "url": "https://www.facebook.com/sun.mgt"
+        },
+        {
+            "name": "webpage",
+            "url": "http://www.learnwiseway.com/myworkspace/sunil.divyam"
+        }
+    ],    
     "employers": [
         {   
             "employerName": "Cosmo Tradex Pvt. Ltd.",
-            "From": "1-Jul-07",
-            "To": "30-Jun-08",
-            "Designation": "Relationship Manager",
-            "Address": "2/15, 2nd floor, west Patel nagar, New Delhi-11008",
-            "Summary": "",
-            "Roles": [
+            "from": "1-Jul-07",
+            "to": "30-Jun-08",
+            "designation": "Relationship Manager",
+            "address": "2/15, 2nd floor, west Patel nagar, New Delhi-11008",
+            "summary": "",
+            "roles": [
                 "Role 1",
                 "Role 2"
             ]
         }
     ],
     "skills": [
+        {             
+            "name": "JavaScript",   
+            "from": "01-01-2008",   
+            "to": "30-06-2009", 
+            "rating": 7,    
+            "summary": "Worked on so so Project with this skill"
+        }
+    ],
+    "projects": [
         {
-            "serialNo": 1,  
-            "Name": "JavaScript",   
-            "From": "01-01-2008",   
-            "To": "30-06-2009", 
-            "Rating": 7,    
-            "Summary": "Worked on so so Project with this skill"
+            "name": "AIMS (Alternate Investment Manager Selection",
+            "clientName": "Goldman Sachs",
+            "from": "1-Jul-07",
+            "to": "30-Jun-08",
+            "summary": "Project Summary",
+            "technologies": [
+                "JavaScript",
+                "moodle"
+            ],
+            "roles": [
+                "Role 1",
+                "Role 2"
+            ]
+        }
+    ],
+    "education": [
+        {
+            "name": "High School",
+            "institution": "CBSE Board",
+            "from": "1-Jul-07",
+            "to": "30-Jun-08",
+            "branch": "Science, Maths, English"
+        },
+        {
+            "name": "MBA (Masters of Business Administration",
+            "institution": "Guru Govind Singh Indraprastha University, New Delhi",
+            "from": "1-Jul-07",
+            "to": "30-Jun-08",
+            "branch": "Marketting and International Business"
+        }
+    ],
+    "additionals": [
+        {
+            "title": "",
+            "summary": "",
+            "bullets": [
+                "bullet info 1",
+                "bullet info 2"
+            ]
         }
     ]
 }

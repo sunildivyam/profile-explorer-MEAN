@@ -1,10 +1,30 @@
-<header>
-  <h1>Profile Explorer</h1>
-  <h2>Developed using MEAN</h2>
-  <h3>Mongo, Express, Angular 4, and Node</h3>
-  <nav>
-    <a routerLink="/dashboard">Dashboard</a>
-  </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" [hidden]="isFullScreen">
+  <a class="navbar-brand" href="#">
+      <h3>Profile Explorer</h3>
+  </a>  
+  <div class="" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a routerLink="/dashboard" class="btn">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/profile/0" class="btn">Create Profile</a>
+      </li>
+      <li class="nav-item">
+        <a (click)="onBackupClick($event)"  href="#" class="btn">
+          <span>Backup All Profiles </span>
+          <span class="fa fa-spinner" *ngIf="backupStarted===true"></span>
+          <span class="fa fa-check text-success" *ngIf="backupSuccess===true"></span>
+          <span class="fa fa-warning text-danger" *ngIf="backupSuccess===false"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<header class="jumbotron bg-warning text-center" [hidden]="isFullScreen">  
+  <h5>Developed using MEAN</h5>
+  <h6>Mongo, Express, Angular 4, and Node</h6>
 </header>
 <router-outlet></router-outlet>
 
